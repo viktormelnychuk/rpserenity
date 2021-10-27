@@ -18,7 +18,7 @@ public class MyStepdefs {
 
     @Then("I receive fail response")
     public void iReceiveFailResponse() throws InterruptedException {
-        test
+        expect_exp();
         expect("failure");
     }
 
@@ -32,5 +32,10 @@ public class MyStepdefs {
     public void expect(String arg) throws InterruptedException {
         Thread.sleep(1000);
         System.out.printf("Expecting to have %s\n", arg);
+    }
+        @Step
+    public void expect_exp(String arg) throws Exception {
+        Thread.sleep(1000);
+        throw new Exception("Failed);
     }
 }
