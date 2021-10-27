@@ -9,3 +9,7 @@ Feature: test feature batch 2
       | GET    |
       | PUT    |
       | DELETE |
+
+  Scenario: scenario 2-failed
+    When I do "POST" request
+    Then I receive fail response

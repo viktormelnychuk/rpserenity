@@ -4,6 +4,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Step;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
 public class MyStepdefs {
 
     @When("I do {string} request")
@@ -17,9 +20,9 @@ public class MyStepdefs {
     }
 
     @Then("I receive fail response")
-    public void iReceiveFailResponse() throws InterruptedException {
-        expect_exp();
-        expect("failure");
+    public void iReceiveFailResponse() throws Exception {
+        expect("fail");
+        assertThat("string", equalTo("anotherString"));
     }
 
     @Step
@@ -32,10 +35,5 @@ public class MyStepdefs {
     public void expect(String arg) throws InterruptedException {
         Thread.sleep(1000);
         System.out.printf("Expecting to have %s\n", arg);
-    }
-        @Step
-    public void expect_exp(String arg) throws Exception {
-        Thread.sleep(1000);
-        throw new Exception("Failed);
     }
 }
