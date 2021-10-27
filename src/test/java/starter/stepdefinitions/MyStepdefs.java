@@ -18,6 +18,7 @@ public class MyStepdefs {
 
     @Then("I receive fail response")
     public void iReceiveFailResponse() throws InterruptedException {
+        test
         expect("failure");
     }
 
